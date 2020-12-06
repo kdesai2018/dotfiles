@@ -1,0 +1,26 @@
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return echo ${ref#refs/heads/}
+}
+
+function current_repository() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return echo $(git remote -v | cut -d':' -f 2)
+}
+
+
+
+# create a folder and cd into it simultaneously
+mkcd ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
+atester () {
+    echo "this is a test"
+}
+
+gpushall () {
+    git add .
+    git commit -m "$0"
+    git push
+}
