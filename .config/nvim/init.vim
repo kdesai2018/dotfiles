@@ -1,24 +1,17 @@
+let mapleader = ','
 " inspiration from https://github.com/zenbro/dotfiles/blob/master/.nvimrc#L151-L187
-let g:python_host_prog='/usr/bin/python2'
-let g:mapleader = "\<Space>"
-
-" Autoinstall vim-plug {{{
-if empty(glob('~/.nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'davidhalter/jedi-vim'
 
 " Appearance
 " ====================================================================
-Plug 'nanotech/jellybeans.vim'
-
 Plug 'itchyny/lightline.vim'
 
+" vim-fugitive for git integration with lightline
+Plug 'tpope/vim-fugitive'
+
+Plug 'owickstrom/vim-colors-paramount'
 " File Search 
 " ====================================================================
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -35,23 +28,22 @@ Plug 'scrooloose/nerdtree'
 
   map <C-o> :NERDTreeToggle<CR>
 
+Plug 'preservim/nerdcommenter'
 " Easy Typing 
 " ====================================================================
 Plug 'jiangmiao/auto-pairs'
+"Plug 'tpope/vim-endwise'
+"Plug 'rstacruz/vim-closer'
 
 Plug 'tpope/vim-surround'
 
-Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-easy-align'
 
 Plug 'scrooloose/syntastic'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-
-  let g:syntastic_vim_checkers          = ['vint']
-  let g:syntastic_elixir_checkers       = ['elixir']
-  let g:syntastic_python_checkers       = ['pylint']
-  let g:syntastic_javascript_checkers   = ['eslint']
+let g:syntastic_vim_checkers          = ['vint']
+let g:syntastic_elixir_checkers       = ['elixir']
+let g:syntastic_python_checkers       = ['pylint']
+let g:syntastic_javascript_checkers   = ['eslint']
 
 
 " Code Checking 
@@ -59,3 +51,48 @@ Plug 'scrooloose/syntastic'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 call plug#end()
+
+
+" Basic functions
+" ====================================================================
+
+" status line commands
+set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ ['lineinfo'],
+      \              [ 'percent' ],
+      \              [ 'filetype' ]]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+
+
+" indenting
+set tabstop=8
+set expandtab
+set shiftwidth=4
+set autoindent
+set smartindent
+set cindent
+
+"" for junegunn/easy-align plugin
+"xmap ga <Plug>(EasyAlign)
+"nmap ga <Plug>(EasyAlign)
+
+"Commenting
+filetype plugin on
+
+"Color 
+" ====================================================================
+colorscheme simple-dark 
