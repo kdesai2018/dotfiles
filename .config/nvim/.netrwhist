@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/kushdesai/github/spotify-playlist-generator'
+let g:netrw_dirhist_9='/Users/kushdesai'
+let g:netrw_dirhist_8='/Users/kushdesai/research/siml/robotaxi-scripts/replay-overlay'
+let g:netrw_dirhist_7='/Users/kushdesai/research/siml/robotaxi-scripts'
+let g:netrw_dirhist_6='/Users/kushdesai/github/kdesai2018.github.io/images'
+let g:netrw_dirhist_5='/Users/kushdesai/github/kdesai2018.github.io'
+let g:netrw_dirhist_4='/Users/kushdesai/github'
+let g:netrw_dirhist_3='/Users/kushdesai'
+let g:netrw_dirhist_2='/Users/kushdesai/.config'
 let g:netrw_dirhist_1='/Users/kushdesai/research/siml/robotaxi-new'
