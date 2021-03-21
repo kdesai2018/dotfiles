@@ -15,10 +15,6 @@ mkcd ()
       cd -P -- "$1"
 }
 
-atester () {
-    echo "this is a test"
-}
-
 gpushall () {
     git add .
     git commit -m "$0"

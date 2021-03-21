@@ -6,7 +6,6 @@ alias m='music'
 
 alias rm='rm -i'
 alias dd='echo "no dd command available"'
-alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
 alias reload="source ~/.zshrc"
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
